@@ -43,6 +43,20 @@
 
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+
+  function logtext(e) {
+    console.log(this.classList.value)
+    // e.stopPropagation(); this essentially means stop bubbling click events dont go to parents
+  }
+
+  divs.forEach(div => div.addEventListener('click', logtext, {
+    capture: false,
+    once: true /// im clicking as many times as possible but it only allows it to click once
+  }));
+  // When it comes to nested elements the capture of the elements are top down but the 
+  // bubble is bottom up (the click events get fired bottom up)
+
 
 </script>
 </body>
